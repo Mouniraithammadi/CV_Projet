@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="target.css">
+    
+  <title>Your resume</title>
+</head>
+<body>
+  
+ 
+  <button onclick="window.print()" >Print</button>
+  <div class="bdy">
+  <div class="line">
+  </div>
+ <section class="container">
+  <div class="tete">
+<div class="pic">
+  <img  id="img" class="img" src="" alt="my picture">
+</div>
+<div class="name">
+  <h2  ><span id="lnam"></span> <span id="nam"></span> <br><span id="job"></span></h2>
+</div>
+</div>
+
+
+
+<div class="title">
+  <h1>About</h1>
+  <div class="zone">
+    <p id="about"></p>
+  </div>
+  </div>
+
+  <div class="page">
+  <div class="title">
+    <h1>Experience</h1>
+    <p id="exp"></p>
+    </div>
+
+    <div class="title">
+      <h1 style="margin-left: -300px; ">Formation</h1>
+      <p  id="formation" style="position: absolute; margin-left: -300px; "></p>  
+    </div>
+    </div>
+
+    <div class="page">
+      <div class="title">
+        <h1>Skills</h1>
+        <p id="skil"></p>
+        </div>
+    
+        <div class="title">
+          <h1 style="margin-left: -300px; margin-bottom: 30%;">Language</h1>
+          <p id="lng" style="position: absolute; margin-left: -300px; width: 140px;" > </p>  
+        </div>
+        </div>
+
+        <div class="page">
+          <div class="title">
+            <h1 >Contact</h1>
+            <h3 >Email : <span id="email"></span> </h3>
+            <h3 >Number phone : <span id="phone"></span> </h3>
+            <h3 > Another contact : <span id="contact"></span> </h3>
+          
+          </div>
+        
+            <div class="title">
+              <h1 style="margin-left: -300px; margin-top: 0%;">Github</h1>
+              <p style="position: absolute; margin-left: -300px; ">
+              <img  id="qr" class="qr" src="" alt=""> 
+              </p>  
+            </div>
+            </div>
+
+    
+ </section>
+</div>
+</body>
+ <!--
+
+  id="email">Email
+  id="phone">Number phone 
+  id="contact"> Another contact
+  id="lng" > langage
+id="skil" > skills
+id="formation"> 
+id="exp"
+id="about"
+id="job"
+id="nam"
+id="lnam"
+ -->
+
+
+<script>
+        window.addEventListener('load' , () => { 
+        document.getElementById('nam').innerHTML = localStorage.getItem("NOM") ; 
+        document.getElementById('lnam').innerHTML = localStorage.getItem("PNOM") ; 
+        document.getElementById('job').innerHTML = localStorage.getItem("J_EXT") ;
+        document.getElementById('about').innerHTML = localStorage.getItem("ABOUT") ; 
+        document.getElementById('skil').innerHTML = localStorage.getItem("SKIL") ; 
+        document.getElementById('formation').innerHTML = localStorage.getItem("FORMA") ; 
+        document.getElementById('exp').innerHTML = localStorage.getItem("EXP") ; 
+        document.getElementById('contact').innerHTML = localStorage.getItem("CONTACT") ; 
+        document.getElementById('email').innerHTML = localStorage.getItem("EMAIL") ; 
+        document.getElementById('phone').innerHTML = localStorage.getItem("PHONE") ; 
+        document.getElementById('lng').innerHTML = localStorage.getItem("LANG") ; 
+
+
+    }
+    )
+    document.addEventListener("DOMContentLoaded", () => {
+    const urlimg = localStorage.getItem('IMG');
+    const urlgithub = localStorage.getItem('GITHUB');
+    var link = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${urlgithub}`;
+    if(urlimg){
+        document.querySelector("#img").setAttribute("src",urlimg);
+    }
+    if(urlgithub){
+        document.querySelector("#qr").setAttribute("src",link);
+    }
+})
+</script>
+<!--
+  script with local storage 
+-->
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create your resume</title>
+        <link rel="stylesheet" href="createCss.css">
+        
+        
+    </head>
+<body>
+<div class="main">
+    <h1 class="titre1">
+        set your information 
+    </h1>
+    <a href="first.html"> <button class="btn" >Back</button></a>
+
+
+
+
+  
+    <div class="box">
+        <form action="targetCV.html">
+       
+    <label for="fname" >Your First Name</label>
+    <input  class="box-name" type="text" id="fname" name="fname" placeholder="Your name.." maxlength="30" ><hr><br>
+    
+    <label for="lname"> Your Last Name </label>
+   
+    <input class="box-lname" type="text" id="lname" name="lname" placeholder="Your Last Name .." maxlength="23" pattern="[A-Za-z]*"><hr><br>
+    <label for="job_exct">Your Jop Exactly </label>
+   
+    <input class="job_exct" type="text" id="job_exct" name="job_exct" placeholder="Your jop.." maxlength="30" ><hr><br>
+   
+    <label for="picture"> Choose your picture </label><br>
+   
+    <input class="box-pic" type="file" id="picture" name="picture"  > 
+    <br>
+    <hr>
+   
+    <label for="About">About </label>
+   
+    <input class="box-About" type="text" id="About" name="About" placeholder="About you..( Country, City , Age , Hobby ,...)" maxlength="400"><hr><br>
+   
+    <label for="Formation">Formation</label>
+   
+    <input class="box-formation" type="text" id="formation" name="formation" placeholder="Your Formation.." maxlength="250"><hr><br>
+    <label for="Education">Experience</label>
+   
+    <input class="box-exp" type="text" id="exp" name="exp" placeholder="Your Experience.." maxlength="250"><hr><br>
+   
+    <label for="Language">Language</label>
+   
+    <input class="box-lng" type="text" id="lng" name="lng" placeholder="Your Language.." maxlength="100"><hr><br>
+   
+    <label for="Skills"> Skills</label>
+   
+    <input class="box-skills" type="text" id="Skills" name="Skills" placeholder="Your Skills.."maxlength="200"><hr><br>
+   
+    <label for="email"> Email</label>
+   
+    <input class="box-email" type="text" id="email" name="email" placeholder="userName@gmail.com" maxlength="30"><hr><br>
+   
+    <label for="phone"> Number phone</label>
+   
+    <input class="box-phone" type="text" id="phone" name="phone" placeholder="+212 666666666" maxlength="13"><hr><br>
+   
+    <label for="github">  Github Link </label><br><br>
+   
+    <input class="box-qr" type="text" id="qr" name="qr" placeholder="Inter your GitHub link... "><hr><br>
+    
+    <label for="contact"> Another Contact</label>
+   
+    <input class="box-contact" type="text" id="contact" name="contact" placeholder="Faceboook , Instagram , twitter ..."><hr><br>
+  
+    <input type="submit" onclick="GetData()"  >
+  
+    
+</form>
+</div>
+
+</div>
+
+
+
+
+
+
+</body>
+<script>
+    function GetData(){
+        var nom = document.getElementById("fname").value;
+            var prenom = document.getElementById("lname").value;
+           var email = document.getElementById("email").value;
+            var job_exct = document.getElementById("job_exct").value;
+            var About = document.getElementById("About").value;
+            var formation = document.getElementById("formation").value;
+            var lng = document.getElementById("lng").value;
+            var skil = document.getElementById("Skills").value;
+            var phone = document.getElementById("phone").value;
+            var exp = document.getElementById("exp").value;
+            var contact = document.getElementById("contact").value;
+            var github = document.getElementById("qr").value;
+
+            localStorage.setItem('NOM',nom);
+            localStorage.setItem('PNOM',prenom);
+            localStorage.setItem('EMAIL',email);
+            localStorage.setItem('ABOUT',About);
+            localStorage.setItem('J_EXT',job_exct);
+            localStorage.setItem('FORMA',formation);
+            localStorage.setItem('CONTACT' , contact);
+            localStorage.setItem('LANG',lng);
+            localStorage.setItem('SKIL', skil);
+            localStorage.setItem('PHONE',phone);
+            localStorage.setItem('EXP',exp);
+            localStorage.setItem('GITHUB',github);
+
+
+    }
+
+    const data = document.querySelector("#picture");
+   data.addEventListener("change", function(){
+   const read = new FileReader();
+   read.addEventListener("load",() => {
+   localStorage.setItem('IMG',read.result);
+   });
+   read.readAsDataURL(this.files[0]);
+   });
+
+  
+ 
+</script>
+
+</html>
+<!--
+         const data = document.querySelector("#picture");
+   data.addEventListener("change", function(){
+   const read = new FileReader();
+   read.addEventListener("load",() => {
+   localStorage.setItem('IMG',read.result);
+   });
+   read.readAsDataURL(this.files[0]);
+   });
+   document.addEventListener("DOMContentLoaded", () => {
+       const urlimg = localStorage.getItem('IMG');
+       if(urlimg){
+           document.querySelector("#dis_img").setAttribute("src",urlimg);
+       }
+   })
+    -->
